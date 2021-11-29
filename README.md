@@ -8,3 +8,4 @@
 ### 用 javascript 实现一个 Brainfuck 解释器
 
 ### 相关资料
+- [Brainfuck Interpterer and Tape Visualizer](http://fatiherikli.github.io/brainfuck-visualizer/)
