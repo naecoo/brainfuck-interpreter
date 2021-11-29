@@ -1,6 +1,13 @@
 {
   "name": "brainfuck-interpreter",
   "version": "1.0.0",
-  "main": "./interpreter.js",
-  "license": "MIT"
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/naecoo/brainfuck-interpreter.git",
+    "type": "git"
+  },
+  "scripts": {
+    "test": "node ./test.js"
+  }
 }
