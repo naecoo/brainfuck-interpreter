@@ -1,4 +1,5 @@
-const operations = ['>', '<', '+', '-', '.', ',', '[', ']'];
+const readlineSync = require('readline-sync');
+
 const max_tape_length = 5000;
 function brainfuckInterpreter(source = '') {
   let current = 0;
@@ -8,12 +9,6 @@ function brainfuckInterpreter(source = '') {
 
   while (current < source.length) {
     const char = source[current];
-
-    if (!operations.includes(char)) {
-      current++;
-      continue;
-    };
-
 
     switch (char) {
       case '>':
@@ -46,7 +41,10 @@ function brainfuckInterpreter(source = '') {
         break;
 
       case ',':
-        // todo: accept value from input, transfrom, and store
+        const input = readlineSync.question('input:: ');
+        if (typeof input === 'string') {
+          tape[pointer] = input[0].codePointAt();
+        }
         break;
 
       case '[':
@@ -58,8 +56,7 @@ function brainfuckInterpreter(source = '') {
           while (current < source.length && source[current] !== ']') {
             current++;
           }
-        } else {
-          current++;
+          continue;
         }
         break;
 
@@ -68,40 +65,18 @@ function brainfuckInterpreter(source = '') {
         if (loopStartIndex === void 0) {
           throw new Error('');
         }
-        if (tape[pointer] === 0) {
-          current++;
-        } else {
-          current = loopStartIndex
+        if (tape[pointer] !== 0) {
+          current = loopStartIndex;
+          continue;
         }
         break;
     }
 
-    if (char !== '[' && char !== ']') {
-      current++;
-    }
+    current++;
   }
 
   return tape;
 }
-
-console.log(brainfuckInterpreter(`
-+++++ +++++
-[
-  > +++++ ++  
-  > +++++ +++++   
-  > +++
-  > +
-  <<<< - 
-]
-> ++ .
-> + . 
-+++++ ++ .
-.
-+++ .
-> ++ .
-<< +++++ +++++ +++++ .
-> .
-`));
 
 module.exports = {
   brainfuckInterpreter

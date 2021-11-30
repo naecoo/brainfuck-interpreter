@@ -9,5 +9,11 @@
   },
   "scripts": {
     "test": "node ./test.js"
+  },
+  "bin": {
+    "brainfuck": "./bin/index.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
