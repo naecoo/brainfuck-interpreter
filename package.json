@@ -8,7 +8,8 @@
     "type": "git"
   },
   "scripts": {
-    "test": "node ./test.js"
+    "test": "node ./test/index.js",
+    "prepublish": "npm run test"
   },
   "bin": {
     "brainfuck": "./bin/index.js"

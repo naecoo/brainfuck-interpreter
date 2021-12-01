@@ -1,13 +1,20 @@
 const readlineSync = require('readline-sync');
 
 const max_tape_length = 5000;
+const max_step = Math.pow(2, 16);
 function brainfuckInterpreter(source = '') {
   let current = 0;
   let pointer = 0;
   const tape = [0];
   const loopStack = [];
+  let step = 1;
 
   while (current < source.length) {
+    step++;
+    if (step > max_step) {
+      throw new Error('Program execution is too long, may fall into an infinite loop, please check the source code');
+    }
+
     const char = source[current];
 
     switch (char) {
@@ -63,7 +70,7 @@ function brainfuckInterpreter(source = '') {
       case ']':
         const loopStartIndex = loopStack.pop();
         if (loopStartIndex === void 0) {
-          throw new Error('');
+          throw new Error('Loop syntax error');
         }
         if (tape[pointer] !== 0) {
           current = loopStartIndex;
