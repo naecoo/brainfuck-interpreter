@@ -1,5 +1,5 @@
 {
-  "name": "brainfuck-interpreter",
+  "name": "tiny-brainfuck-interpreter",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
