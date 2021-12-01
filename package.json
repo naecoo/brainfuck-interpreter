@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "naecoo <ocean7hy@gmail.com>",
   "repository": {
     "url": "https://github.com/naecoo/brainfuck-interpreter.git",
     "type": "git"
