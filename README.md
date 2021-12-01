@@ -1,11 +1,30 @@
-## 一个简单的 Brainfuck 解释器 
+## A tiny Brainfuck interpreter 
 
-### 关于 Brainfuck
-[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) 是一种极小化的计算机语言，语法仅有八个符号组成，所有操作都由这八个符号所组成。尽管如此，Brainfuck 依然是图灵完备的编程语言。
+### About Brainfuck
+[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) is a minimal computer language with a syntax consisting of only eight symbols that make up all operations. Still, Brainfuck is a turing-complete programming language.
 
-### Brainfuck 语法介绍
 
-### 用 javascript 实现一个 Brainfuck 解释器
+### Install
+```bash
+npm install tiny-brainfuck-interpreter
+```
 
-### 相关资料
-- [Brainfuck Interpterer and Tape Visualizer](http://fatiherikli.github.io/brainfuck-visualizer/)
+### Usage
+```javascript
+const { brainfuckInterpreter } = require('tiny-brainfuck-interpreter');
+
+const tape = brainfuckInterpreter('++++++[>++++++<-]>.');
+// output::  $
+console.log(tape);
+// [0, 36]
+
+```
+
+
+or just using 'npx'
+```bash
+npx tiny-brainfuck-interpreter '++++++[>++++++<-]>.'
+
+// output::  $
+// [0, 36]
+```
